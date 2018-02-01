@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.algaworks</groupId>
+	<artifactId>DeployTomcatMaven</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+
+	
+	<properties>
+		<!-- Informa para o maven usar o encoding UTF-8 quando tiver copiando os arquivos para fazer o build -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- CONFIGURAR O BUILD DO MAVEN -->
+	<build>
+
+		<!-- Configura o nome final do arquivo .war após o deploy -->
+		<finalName>DeployTomcatMaven</finalName>
+
+		<plugins>
+			<!-- determina o plugin para empacotamento war -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<!-- configura o plugin de empacotamento war -->
+				<configuration>
+					<!-- determina que o empacotamento não deve falhar, mesmo na ausência do arquivo web.xml. Isso é necessário, pois por padrão o empacotamento war requer o arquivo web.xml -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+
+</project>
