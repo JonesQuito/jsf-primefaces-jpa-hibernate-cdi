@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+	<style>
+.col1 {
+	width: 130px;
+	text-align: left;
+}
+
+.col2 {
+	width: 300px;
+}
+
+.ui-panelgrid tr {
+	border: none;
+}
+
+.ui-panelgrid td {
+	border: none;
+}
+
+</style>
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<p:messages/>
+		
+		<p:panelGrid id="panel" columns="2" columnClasses="col1, col2">
+			<p:outputLabel value="Nome" />
+			<p:inputText id="nome" size="80"
+				required="true"
+				onkeyup="this.value = this.value.toUpperCase();"
+				ondblclick="this.value = ''" />
+				
+			<p:outputLabel value="E-mail" for="email"/>
+			<p:inputText id="email" required="true"/>
+
+			<p:outputLabel value="Data de nascimento" />
+			<p:calendar id="dataNascimento" required="true"/>
+		</p:panelGrid>
+		<p:commandButton value="Cadastrar"
+			icon="ui-icon-disk" iconPos="right"
+			onclick="document.getElementById('saida').innerHTML = document.getElementById('j_idt5:nome').value + ' nascido em: ' + document.getElementById('j_idt5:dataNascimento_input').value" />
+
+	</h:form>
+	<div style="margin: auto; text-align: center;">
+		<h1 id="saida"></h1>
+	</div>
+
+</h:body>
+</html>
